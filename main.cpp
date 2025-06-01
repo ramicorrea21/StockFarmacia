@@ -4,6 +4,7 @@
 #include <sstream>
 #include <string>
 #include <cstdio> 
+#include <iomanip>
 
 using namespace std;
 
@@ -291,7 +292,11 @@ namespace Stock {
         for (int i = 0; i < n; i++) {
             valorTotal += productos[i].precio * productos[i].stock;
         }
-        cout << "El valor total del inventario es: " << valorTotal << "\n";
+
+        // Forzar formato decimal fijo
+        cout << fixed << setprecision(2);
+        cout << "El valor total del inventario es: $" << valorTotal << "\n";
+        cout << resetiosflags(ios::fixed | ios::floatfield); 
     }
 
     // Menú principal
